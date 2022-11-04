@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title</title>
+  <style>
+      canvas {
+          border: 1px solid black;
+      }
+  </style>
+</head>
+<body>
+<!-- 创建canvas画布 -->
+<!-- 属性width和height代表画布的尺寸 -->
+<!-- style里的width和height代表显示尺寸 -->
+<canvas id="c1" width="300" height="300" style="width:300px;height:300px;"></canvas>
+
+<script>
+  // 获取canvas画布
+  const c1 = document.getElementById("c1");
+  // 获取画布的上下文(画笔对象)
+  const ctx = c1.getContext('2d');
+  // 画笔对象
+  /* 属性 */
+  // 属性名  默认值   解释
+  // fillStyle: "#000000"     填充颜色
+  // strokeStyle: "#000000"   边框颜色
+  // lineCap: "butt"    线段末端样式
+  // lineJoin: "miter"  线段连接处样式
+  // lineWidth: 1     线段宽度
+  // miterLimit: 10   线段相交时交接处最大长度
+  // lineDashOffset: 0  虚线起始偏移量
+  // shadowColor: "rgba(0, 0, 0, 0)"  阴影颜色
+  // shadowBlur: 0      阴影模糊程度
+  // shadowOffsetX: 0   阴影X轴延伸程度
+  // shadowOffsetY: 0   阴影Y轴延伸程度
+  // font: "10px sans-serif"  字体大小和样式
+  // direction: "ltr"     文字方向
+  // textAlign: "start"   文字对齐方式
+  // textBaseline: "alphabetic"   文字垂直对齐方式
+  // globalAlpha: 1   全局透明度
+  // globalCompositeOperation: "source-over"  全局组合样式
+  // filter: "none" 拦截器
+  // imageSmoothingEnabled: true    图片平滑启用
+  // imageSmoothingQuality: "low"   图片平滑质量
+  /* 方法 */
+  // 方法名  解释
+  // fillRect   填充矩形
+  // strokeRect   矩形边框
+  // clearRect  矩形清除
+  // beginPath  开始路径
+  // closePath  关闭路径
+  // moveTo   移动到
+  // lineTo   绘制线段
+  // quadraticCurveTo 绘制二次贝塞尔曲线
+  // bezierCurveTo    绘制三次贝塞尔曲线
+  // rect   绘制矩形
+  // arc    绘制圆弧
+  // arcTo  绘制圆弧(不推荐)
+  // ellipse  绘制椭圆弧
+  // fill     绘制填充
+  // stroke   绘制边框
+  // clip
+  // createLinearGradient   创建线性渐变
+  // createRadialGradient   创建放射状或环状渐变
+  // createPattern  指定方向上重复元素
+  // drawFocusIfNeeded
+  // fillText
+  // getContextAttributes
+  // drawImage  绘制图像
+  // createImageData  创建图像数据
+  // getImageData     获取图像数据
+  // putImageData     设置图像数据
+  // getLineDash
+  // isPointInPath
+  // isPointInStroke
+  // measureText
+  // getTransform
+  // resetTransform
+  // save     保存状态
+  // restore  恢复状态
+  // setLineDash
+  // setTransform
+  // strokeText
+  // transform  移动原点
+  // rotate   旋转
+  // scale  缩放
+  // translate
+  console.log(ctx);
+  // 设置填充颜色
+  ctx.fillStyle = "red";
+  // 绘制一个填充矩形
+  ctx.fillRect(10, 20, 30, 30);
+  // 清除矩形
+  ctx.clearRect(20, 30, 5, 10);
+  // 设置边框颜色
+  ctx.strokeStyle = "blue";
+  // 设置线段宽度
+  ctx.lineWidth = 5;
+  // 绘制一个矩形边框
+  ctx.strokeRect(50, 60, 30, 30);
+</script>
+</body>
+</html>
