@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      canvas {
+          border: 1px solid black;
+      }
+  </style>
+</head>
+<body>
+<canvas id="c1" width="300" height="300"></canvas>
+<canvas id="c2" width="300" height="300"></canvas>
+<canvas id="c3" width="300" height="300"></canvas>
+<canvas id="c4" width="300" height="300"></canvas>
+<canvas id="c5" width="300" height="300"></canvas>
+<script>
+  const c1 = document.getElementById("c1");
+  const ctx = c1.getContext('2d');
+  ctx.fillRect(0, 0, 150, 150);
+  // 保存画布状态
+  ctx.save();
+  ctx.fillStyle = '#09F'
+  ctx.fillRect(15, 15, 120, 120);
+  ctx.save();
+  ctx.fillStyle = '#FFF'
+  ctx.globalAlpha = 0.5;
+  ctx.fillRect(30, 30, 90, 90);
+  // 恢复画布状态
+  ctx.restore();
+  ctx.fillRect(45, 45, 60, 60);
+  ctx.restore();
+  ctx.fillRect(60, 60, 30, 30);
+
+  const c2 = document.getElementById("c2");
+  const ctx2 = c2.getContext('2d');
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+      ctx2.save();
+      ctx2.fillStyle = 'rgb(' + (51 * i) + ', ' + (255 - 51 * i) + ', 255)';
+      // 移动画布原点
+      // translate(左偏移量,下偏移量)
+      ctx2.translate(10 + j * 50, 10 + i * 50);
+      ctx2.fillRect(0, 0, 25, 25);
+      ctx2.restore();
+    }
+  }
+
+  const c3 = document.getElementById("c3");
+  const ctx3 = c3.getContext('2d');
+  ctx3.translate(75, 75);
+  for (let i = 1; i < 6; i++) {
+    ctx3.save();
+    ctx3.fillStyle = 'rgb(' + (51 * i) + ',' + (255 - 51 * i) + ',255)';
+    for (let j = 0; j < i * 6; j++) {
+      // 旋转
+      // rotate(角度)
+      ctx3.rotate(Math.PI * 2 / (i * 6));
+      ctx3.beginPath();
+      ctx3.arc(0, i * 12.5, 5, 0, Math.PI * 2, true);
+      ctx3.fill();
+    }
+    ctx3.restore();
+  }
+
+  const c4 = document.getElementById("c4");
+  const ctx4 = c4.getContext('2d');
+  ctx4.save();
+  // 缩放
+  // scale(宽缩放比,高缩放比)
+  ctx4.scale(10, 3);
+  ctx4.fillRect(1, 10, 10, 10);
+  ctx4.restore();
+  // 水平镜像
+  ctx4.scale(-1, 1);
+  ctx4.font = '48px serif';
+  ctx4.fillText('ABC', -135, 120);
+
+  const c5 = document.getElementById("c5");
+  const ctx5 = c5.getContext('2d');
+  const sin = Math.sin(Math.PI / 6);
+  const cos = Math.cos(Math.PI / 6);
+  ctx5.translate(100, 100);
+  let c = 0;
+  for (let i = 0; i <= 12; i++) {
+    c = Math.floor(255 / 12 * i);
+    ctx5.fillStyle = "rgb(" + c + "," + c + "," + c + ")";
+    ctx5.fillRect(0, 0, 100, 10);
+    // 变形矩阵
+    ctx5.transform(cos, sin, -sin, cos, 0, 0);
+  }
+  // 单位矩阵
+  ctx5.setTransform(-1, 0, 0, 1, 100, 100);
+  ctx5.fillStyle = "rgba(255, 128, 255, 0.5)";
+  ctx5.fillRect(0, 50, 100, 100);
+</script>
+</body>
+</html>

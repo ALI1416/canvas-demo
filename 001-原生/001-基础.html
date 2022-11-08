@@ -28,9 +28,9 @@
   // fillStyle: "#000000"     填充颜色
   // strokeStyle: "#000000"   边框颜色
   // lineCap: "butt"    线段末端样式
-  // lineJoin: "miter"  线段连接处样式
+  // lineJoin: "miter"  线段拐点样式
   // lineWidth: 1     线段宽度
-  // miterLimit: 10   线段相交时交接处最大长度
+  // miterLimit: 10   线段斜接限定值
   // lineDashOffset: 0  虚线起始偏移量
   // shadowColor: "rgba(0, 0, 0, 0)"  阴影颜色
   // shadowBlur: 0      阴影模糊程度
@@ -42,52 +42,52 @@
   // textBaseline: "alphabetic"   文字垂直对齐方式
   // globalAlpha: 1   全局透明度
   // globalCompositeOperation: "source-over"  全局组合样式
+  // imageSmoothingEnabled: true    图片缩放平滑启用
+  // imageSmoothingQuality: "low"   图片缩放平滑质量
   // filter: "none" 拦截器
-  // imageSmoothingEnabled: true    图片平滑启用
-  // imageSmoothingQuality: "low"   图片平滑质量
   /* 方法 */
   // 方法名  解释
-  // fillRect   填充矩形
+  // fillRect     填充矩形
   // strokeRect   矩形边框
   // clearRect  矩形清除
   // beginPath  开始路径
   // closePath  关闭路径
+  // clip       裁剪路径
   // moveTo   移动到
   // lineTo   绘制线段
-  // quadraticCurveTo 绘制二次贝塞尔曲线
-  // bezierCurveTo    绘制三次贝塞尔曲线
   // rect   绘制矩形
   // arc    绘制圆弧
   // arcTo  绘制圆弧(不推荐)
   // ellipse  绘制椭圆弧
+  // quadraticCurveTo 绘制二次贝塞尔曲线
+  // bezierCurveTo    绘制三次贝塞尔曲线
   // fill     绘制填充
   // stroke   绘制边框
-  // clip
+  // setLineDash    设置虚线样式
+  // getLineDash    获取虚线样式
   // createLinearGradient   创建线性渐变
-  // createRadialGradient   创建放射状或环状渐变
-  // createPattern  指定方向上重复元素
-  // drawFocusIfNeeded
-  // fillText
-  // getContextAttributes
-  // drawImage  绘制图像
+  // createRadialGradient   创建径向渐变
+  // createPattern          创建图案样式
+  // fillText     填充文本
+  // strokeText   文本边框
+  // measureText  预测量文本宽度
+  // drawImage        绘制图像
   // createImageData  创建图像数据
   // getImageData     获取图像数据
   // putImageData     设置图像数据
-  // getLineDash
-  // isPointInPath
-  // isPointInStroke
-  // measureText
-  // getTransform
-  // resetTransform
   // save     保存状态
   // restore  恢复状态
-  // setLineDash
-  // setTransform
-  // strokeText
-  // transform  移动原点
-  // rotate   旋转
-  // scale  缩放
-  // translate
+  // translate  移动
+  // rotate     旋转
+  // scale      缩放
+  // transform        变形
+  // setTransform     设置变形
+  // getTransform     获取变形
+  // resetTransform   恢复变形
+  // isPointInPath
+  // isPointInStroke
+  // getContextAttributes
+  // drawFocusIfNeeded
   console.log(ctx);
   // 设置填充颜色
   ctx.fillStyle = "red";

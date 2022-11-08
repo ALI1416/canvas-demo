@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title</title>
+  <style>
+      canvas {
+          border: 1px solid black;
+      }
+  </style>
+</head>
+<body>
+<canvas id="c1" width="300" height="300"></canvas>
+<canvas id="c2" width="300" height="300"></canvas>
+<canvas id="c3" width="300" height="300"></canvas>
+<canvas id="c4" width="300" height="300"></canvas>
+<script>
+  const c1 = document.getElementById("c1");
+  const ctx = c1.getContext('2d');
+  /* 颜色 */
+  // 英文
+  ctx.fillStyle = "orange";
+  ctx.fillRect(0, 0, 20, 20);
+  // 16进制
+  ctx.fillStyle = "#FFA500";
+  ctx.fillRect(30, 0, 20, 20);
+  // rgb
+  ctx.fillStyle = "rgb(255,165,0)";
+  ctx.fillRect(60, 0, 20, 20);
+  // rgba
+  ctx.fillStyle = "rgba(255,165,0,1)";
+  ctx.fillRect(90, 0, 20, 20);
+
+  /* 透明度 */
+  // 使用rgba设置
+  ctx.fillStyle = "rgba(255,165,0,0.8)";
+  ctx.fillRect(120, 0, 20, 20);
+  // 使用全局透明度设置，已经绘制好的不再生效
+  ctx.globalAlpha = 0.6;
+  ctx.fillStyle = "#FFA500";
+  ctx.fillRect(150, 0, 20, 20);
+  ctx.globalAlpha = 1;
+
+  /* 线条 */
+  // 设置轮廓颜色
+  ctx.strokeStyle = "#FFA500";
+  ctx.beginPath();
+  ctx.moveTo(0, 50);
+  ctx.lineTo(150, 50);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(0, 100);
+  ctx.lineTo(150, 100);
+  ctx.stroke();
+  ctx.strokeStyle = "black";
+  /* 宽度 */
+  // 宽度为1的线条(奇数宽度线条不能精确呈现)(默认)
+  ctx.beginPath();
+  ctx.moveTo(10, 50);
+  ctx.lineTo(10, 100);
+  ctx.stroke();
+  // 宽度为4的线条
+  ctx.lineWidth = 4;
+  ctx.beginPath();
+  ctx.moveTo(20, 50);
+  ctx.lineTo(20, 100);
+  ctx.stroke();
+  /* 末端样式 */
+  // 末端样式为butt(默认)
+  ctx.lineWidth = 10;
+  ctx.beginPath();
+  ctx.moveTo(50, 50);
+  ctx.lineTo(50, 100);
+  ctx.stroke();
+  // 末端样式为round
+  ctx.lineCap = "round";
+  ctx.beginPath();
+  ctx.moveTo(80, 50);
+  ctx.lineTo(80, 100);
+  ctx.stroke();
+  // 末端样式为square
+  ctx.lineCap = "square";
+  ctx.beginPath();
+  ctx.moveTo(110, 50);
+  ctx.lineTo(110, 100);
+  ctx.stroke();
+  ctx.lineCap = "butt";
+  /* 拐点样式 */
+  // 拐点样式为miter(默认)
+  ctx.beginPath();
+  ctx.moveTo(10, 120);
+  ctx.lineTo(30, 150);
+  ctx.lineTo(50, 120);
+  ctx.stroke();
+  // 拐点样式为round
+  ctx.lineJoin = "round";
+  ctx.beginPath();
+  ctx.moveTo(70, 120);
+  ctx.lineTo(90, 150);
+  ctx.lineTo(110, 120);
+  ctx.stroke();
+  // 拐点样式为bevel
+  ctx.lineJoin = "bevel";
+  ctx.beginPath();
+  ctx.moveTo(130, 120);
+  ctx.lineTo(150, 150);
+  ctx.lineTo(170, 120);
+  ctx.stroke();
+  ctx.lineJoin = "miter";
+  /* 斜接限定值 */
+  // 默认值为10，除去小于11度的斜接(拐点样式miter变为bevel)
+  ctx.beginPath();
+  ctx.moveTo(10, 170);
+  ctx.lineTo(30, 190);
+  ctx.lineTo(50, 170);
+  ctx.stroke();
+  // 为√2 ≈ 1.414时，除去所有锐角的斜接
+  ctx.miterLimit = 1.414;
+  ctx.beginPath();
+  ctx.moveTo(70, 170);
+  ctx.lineTo(90, 190);
+  ctx.lineTo(110, 170);
+  ctx.stroke();
+  // 为1时，除去所有斜接(小于1无效)
+  ctx.miterLimit = 1;
+  ctx.beginPath();
+  ctx.moveTo(130, 170);
+  ctx.lineTo(150, 190);
+  ctx.lineTo(170, 170);
+  ctx.stroke();
+  ctx.miterLimit = 10;
+  /* 虚线 */
+  ctx.lineWidth = 2;
+  // 设置虚线样式，传入数组指定线段与间隙的交替
+  ctx.setLineDash([10, 2]);
+  ctx.beginPath();
+  ctx.moveTo(10, 220);
+  ctx.lineTo(290, 220);
+  ctx.stroke();
+  // 获取虚线样式
+  console.log(ctx.getLineDash());
+  // 设置虚线起始偏移量
+  ctx.lineDashOffset = 5;
+  ctx.beginPath();
+  ctx.moveTo(10, 240);
+  ctx.lineTo(290, 240);
+  ctx.stroke();
+
+  /* 渐变 */
+  const c2 = document.getElementById("c2");
+  const ctx2 = c2.getContext('2d');
+  /* 创建线性渐变 */
+  // createLinearGradient(起点x,起点y,终点x,终点y)
+  const linearGradient = ctx2.createLinearGradient(0, 0, 0, 150);
+  // 设置终止位置和颜色
+  // addColorStop(终止位置,颜色)
+  linearGradient.addColorStop(0, '#00ABEB');
+  linearGradient.addColorStop(0.5, '#fff');
+  linearGradient.addColorStop(0.5, '#26C000');
+  linearGradient.addColorStop(1, '#fff');
+  // 可以把渐变赋值给样式
+  ctx2.fillStyle = linearGradient;
+  ctx2.fillRect(10, 10, 130, 130);
+  /* 创建径向渐变 */
+  // createLinearGradient(起点圆x,起点圆y,起点圆半径,终点圆x,终点圆y,终点圆半径)
+  const radialGradient = ctx2.createRadialGradient(245, 245, 10, 252, 250, 130);
+  radialGradient.addColorStop(0, '#A7D30C');
+  radialGradient.addColorStop(0.9, '#019F62');
+  radialGradient.addColorStop(1, 'rgba(1,159,98,0)');
+  ctx2.fillStyle = radialGradient;
+  ctx2.fillRect(100, 100, 200, 200);
+
+  /* 图案样式 */
+  const c3 = document.getElementById("c3");
+  const ctx3 = c3.getContext('2d');
+  const image = new Image();
+  image.src = "../img/苹果.png";
+  image.onload = function () {
+    // 创建图案样式
+    // createPattern(图片,重复样式[repeat、repeat-x、repeat-y、no-repeat])
+    const canvasPattern = ctx.createPattern(image, 'repeat');
+    ctx3.fillStyle = canvasPattern;
+    ctx3.fillRect(0, 0, 300, 300);
+  }
+
+  /* 阴影 */
+  const c4 = document.getElementById("c4");
+  const ctx4 = c4.getContext('2d');
+  // 阴影X轴延伸程度
+  ctx4.shadowOffsetX = 2;
+  // 阴影Y轴延伸程度
+  ctx4.shadowOffsetY = 2;
+  // 阴影模糊程度
+  ctx4.shadowBlur = 2;
+  // 阴影颜色
+  ctx4.shadowColor = "rgba(0, 0, 0, 0.5)";
+  ctx4.font = "20px Times New Roman";
+  ctx4.fillStyle = "Black";
+  ctx4.fillText("Sample String", 5, 30);
+
+  /* 填充规则 */
+  // fill、clip、isPointinPath有效
+  ctx4.beginPath();
+  ctx4.arc(100, 100, 30, 0, Math.PI * 2, true);
+  ctx4.arc(100, 100, 15, 0, Math.PI * 2, true);
+  ctx4.fill();
+  // 默认nonzero
+  ctx4.beginPath();
+  ctx4.arc(150, 150, 30, 0, Math.PI * 2, true);
+  ctx4.arc(150, 150, 15, 0, Math.PI * 2, true);
+  // evenodd
+  ctx4.fill("evenodd");
+
+</script>
+</body>
+</html>

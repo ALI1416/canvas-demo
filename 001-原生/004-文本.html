@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title</title>
+  <style>
+      canvas {
+          border: 1px solid black;
+      }
+  </style>
+</head>
+<body>
+<canvas id="c1" width="300" height="300"></canvas>
+<script>
+  const c1 = document.getElementById("c1");
+  const ctx = c1.getContext('2d');
+  // 字体大小和样式
+  ctx.font = "48px serif";
+  // 填充文本
+  // fillText(文本,x,y,最大宽度)
+  ctx.fillText("Hello world", 10, 50);
+  // 文本边框
+  // strokeText(文本,x,y,最大宽度)
+  ctx.strokeText("Hello world", 10, 100, 200);
+  ctx.font = "20px serif";
+  // 对齐方式(相当于x)
+  // start(默认)、end、left、right、center
+  ctx.fillText("Hello world", 0, 130);
+  ctx.textAlign = "center";
+  ctx.fillText("Hello world", 0, 150);
+  ctx.textAlign = "start";
+  // 垂直对齐方式(相当于y)
+  // top、hanging、middle、alphabetic(默认)、ideographic、bottom
+  ctx.fillText("Hello world", 0, 180);
+  ctx.textBaseline = "hanging";
+  ctx.fillText("Hello world", 0, 180);
+  // 预测量文本宽度
+  console.log(ctx.measureText("Hello world"));
+
+</script>
+</body>
+</html>

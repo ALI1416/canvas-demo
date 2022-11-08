@@ -15,6 +15,7 @@
 <canvas id="c1" width="300" height="300"></canvas>
 <canvas id="c2" width="300" height="300"></canvas>
 <canvas id="c3" width="300" height="300"></canvas>
+<canvas id="c4" width="300" height="300"></canvas>
 <script>
   const c1 = document.getElementById("c1");
   const ctx = c1.getContext('2d');
@@ -22,14 +23,17 @@
   // 绘制一个填充矩形
   // fillRect(x,y,宽,高)
   ctx.fillRect(10, 20, 30, 30);
+
   /* 清除矩形 */
   // 清除矩形
   // clearRect(x,y,宽,高)
   ctx.clearRect(20, 30, 5, 10);
+
   /* 绘制矩形边框 */
   // 绘制一个矩形边框
   // strokeRect(x,y,宽,高)
   ctx.strokeRect(50, 60, 30, 30);
+
   /* 绘制形状 */
   // 开始绘制路径
   // beginPath()
@@ -44,6 +48,7 @@
   // 填充(自动闭合路径)
   // fill()
   ctx.fill();
+
   /* 绘制边框 */
   ctx.beginPath();
   ctx.moveTo(100, 10);
@@ -52,22 +57,26 @@
   // 绘制边框(不自动闭合路径)
   // stroke()
   ctx.stroke();
+
   /* 绘制矩形 */
   ctx.beginPath();
   // rect(x,y,宽,高)
   ctx.rect(150, 50, 20, 20);
   ctx.fill();
+
   /* 绘制圆弧 */
   ctx.beginPath();
   // 绘制圆弧
   // arc(圆心x,圆心y,半径,开始弧度[x轴正方向],结束弧度,true逆时针false顺时针[默认])
   ctx.arc(200, 50, 20, 0, Math.PI / 2);
   ctx.stroke();
+
   /* 绘制椭圆弧 */
   ctx.beginPath();
   // ellipse(椭圆中心x,椭圆中心y,长轴半径,短轴半径,旋转弧度[顺时针],开始弧度[x轴正方向],结束弧度,true逆时针false顺时针[默认])
   ctx.ellipse(150, 150, 40, 20, Math.PI / 6, 0, Math.PI / 2, true);
   ctx.stroke();
+
   /* 二次贝塞尔曲线 */
   const c2 = document.getElementById("c2");
   const ctx2 = c2.getContext('2d');
@@ -80,6 +89,7 @@
   ctx2.quadraticCurveTo(125, 100, 125, 62.5);
   ctx2.quadraticCurveTo(125, 25, 75, 25);
   ctx2.stroke();
+
   /* 三次贝塞尔曲线 */
   const c3 = document.getElementById("c3");
   const ctx3 = c3.getContext('2d');
@@ -92,6 +102,22 @@
   ctx3.bezierCurveTo(130, 62.5, 130, 25, 100, 25);
   ctx3.bezierCurveTo(85, 25, 75, 37, 75, 40);
   ctx3.fill();
+
+  /* Path2D */
+  const c4 = document.getElementById("c4");
+  const ctx4 = c4.getContext('2d');
+  // 保存为Path2D对象
+  const rectangle = new Path2D();
+  rectangle.rect(10, 10, 50, 50);
+  const circle = new Path2D();
+  circle.moveTo(125, 35);
+  circle.arc(100, 35, 25, 0, 2 * Math.PI);
+  ctx4.stroke(rectangle);
+  ctx4.fill(circle);
+  // 使用SVG paths
+  const path = new Path2D("M100 100 h 80 v 80 h -80 Z");
+  ctx4.stroke(path);
+
 </script>
 
 </body>

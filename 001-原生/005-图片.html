@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      canvas {
+          border: 1px solid black;
+      }
+  </style>
+</head>
+<body>
+<canvas id="c1" width="300" height="300"></canvas>
+<canvas id="c2" width="300" height="300"></canvas>
+<canvas id="c3" width="300" height="300"></canvas>
+<script>
+  const c1 = document.getElementById("c1");
+  const ctx = c1.getContext('2d');
+  const c2 = document.getElementById("c2");
+  const ctx2 = c2.getContext('2d');
+  const c3 = document.getElementById("c3");
+  const ctx3 = c3.getContext('2d');
+  const image = new Image();
+  image.src = "../img/苹果.png";
+  image.onload = function () {
+    // 绘制图片
+    // drawImage(图片,x,y)
+    ctx.drawImage(image, 0, 0);
+    // 缩放图片
+    // drawImage(图片,x,y,指定宽,指定高)
+    ctx2.drawImage(image, 0, 0, 128, 128);
+    // 切片
+    // drawImage(图片,原图x,原图y,原图宽,原图高,x,y,指定宽,指定高)
+    ctx2.drawImage(image, 0, 0, 128, 128, 150, 150, 32, 32);
+  }
+  // 使用base64绘制
+  const image2 = new Image();
+  image2.src = 'data:image/gif;base64,R0lGODlhCwALAIAAAAAA3pn/ZiH5BAEAAAEALAAAAAALAAsAAAIUhA+hkcuO4lmNVindo7qyrIXiGBYAOw==';
+  image2.onload = function () {
+    ctx3.drawImage(image2, 20, 20);
+    ctx3.drawImage(image2, 60, 20, 32, 32);
+    // 图片缩放平滑质量
+    // high、medium、low(默认)
+    ctx3.imageSmoothingQuality = "high";
+    ctx3.drawImage(image2, 120, 20, 32, 32);
+    // 是否启用图片平滑
+    ctx3.imageSmoothingEnabled = false;
+    ctx3.drawImage(image2, 180, 20, 32, 32);
+  }
+
+</script>
+</body>
+</html>
