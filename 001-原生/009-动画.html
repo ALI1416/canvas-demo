@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title</title>
+  <style>
+      canvas {
+          border: 1px solid black;
+      }
+  </style>
+</head>
+<body>
+<canvas id="c1" width="300" height="300"></canvas>
+<canvas id="c2" width="300" height="300"></canvas>
+<script>
+  const c1 = document.getElementById("c1");
+  const ctx = c1.getContext('2d');
+  ctx.font = "50px Consoles";
+  ctx.translate(150, 150);
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText(getDate(), 0, 0);
+  // 使用间隔函数绘制动画
+  setInterval(() => {
+    // 绘制下一个动画前，需要清空画布
+    ctx.clearRect(-150, -150, 300, 300);
+    ctx.fillText(getDate(), 0, 0);
+  }, 1000)
+
+  // 获取当前日期时间
+  function getDate() {
+    const date = new Date();
+    return (date.getHours() < 10 ? ("0" + date.getHours()) : date.getHours()) //
+        + ":" + (date.getMinutes() < 10 ? ("0" + date.getMinutes()) : date.getMinutes()) //
+        + ":" + (date.getSeconds() < 10 ? ("0" + date.getSeconds()) : date.getSeconds());
+  }
+
+  const c2 = document.getElementById("c2");
+  const ctx2 = c2.getContext('2d');
+  // 鼠标按下
+  let isDraw = false;
+  // 当前鼠标坐标
+  const p = {
+    x: 0,
+    y: 0
+  }
+  // 鼠标按下
+  c2.onmousedown = function (e) {
+    isDraw = true;
+    ctx.beginPath();
+    ctx2.moveTo(e.offsetX, e.offsetY);
+  }
+  // 鼠标移动
+  c2.onmousemove = function (e) {
+    p.x = e.offsetX;
+    p.y = e.offsetY;
+  }
+  // 鼠标松开
+  c2.onmouseup = function (e) {
+    isDraw = false;
+  }
+
+  function draw() {
+    if (isDraw) {
+      ctx2.lineTo(p.x, p.y);
+      ctx2.stroke();
+    }
+    // 使用请求动画帧绘制动画
+    requestAnimationFrame(draw);
+  }
+
+  draw();
+
+</script>
+</body>
+</html>

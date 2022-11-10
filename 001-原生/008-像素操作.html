@@ -13,12 +13,55 @@
 </head>
 <body>
 <canvas id="c1" width="300" height="300"></canvas>
-<canvas id="c2" width="300" height="300"></canvas>
-<canvas id="c3" width="300" height="300"></canvas>
-<canvas id="c4" width="300" height="300"></canvas>
+<canvas id="c2" width="100" height="100"></canvas>
+<button onclick="downLoadUrlBtn()">使用URL下载</button>
+<button onclick="downLoadBlobBtn()">使用Blob下载</button>
 <script>
   const c1 = document.getElementById("c1");
   const ctx = c1.getContext('2d');
+  const image = new Image();
+  image.src = "../img/苹果.png";
+  image.onload = function () {
+    ctx.drawImage(image, 0, 0);
+    // 获取图像数据
+    // 返回数组，每4个为一组，代表一个像素，分别是RGBA
+    // getImageData(x,y,宽,高)
+    console.log(ctx.getImageData(0, 0, 10, 10));
+  }
+
+  const c2 = document.getElementById("c2");
+  const ctx2 = c2.getContext('2d');
+  // 创建图像数据
+  // createImageData(宽,高)
+  ctx2.createImageData(100, 100);
+  let imageData = ctx2.getImageData(0, 0, 100, 100);
+  for (let i = 0; i < imageData.data.length; i++) {
+    imageData.data[i] = Math.floor(Math.random() * 256);
+  }
+  // 设置图像数据
+  // putImageData(图像数据,x,y)
+  ctx2.putImageData(imageData, 0, 0);
+
+  function downLoadUrlBtn() {
+    // 转换成URL
+    downLoad(c2.toDataURL())
+  }
+
+  function downLoadBlobBtn() {
+    // 转换成Blob
+    c2.toBlob(blob => downLoad(URL.createObjectURL(blob)))
+  }
+
+  // 下载
+  function downLoad(url) {
+    const a = document.createElement("a");
+    a.download = '';
+    a.href = url;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }
+
 </script>
 </body>
 </html>
