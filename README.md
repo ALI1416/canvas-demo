@@ -3,6 +3,10 @@
 ## 原生API
 网站：<https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API>
 
+## Konva
+- 官方文档：<https://konvajs.org/docs/>
+- 中文文档：<http://bluehymn.com/docs/>
+
 ## 项目链接
 [Github](https://github.com/ALI1416/canvas-demo)
 
