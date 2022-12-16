@@ -27,7 +27,9 @@ onMounted(() => {
   });
   /* 2、创建图层 */
   const layer = new Konva.Layer();
-  /* 3、创建图形(圆) */
+  /* 3、图层添加进舞台 */
+  stage.add(layer);
+  /* 4、创建图形(圆) */
   const circle = new Konva.Circle({
     // 圆的x
     x: stage.width() / 2,
@@ -42,9 +44,7 @@ onMounted(() => {
     // 轮廓宽度
     strokeWidth: 4
   });
-  /* 4、图形添加进图层 */
+  /* 5、图形添加进图层 */
   layer.add(circle);
-  /* 5、图层添加进舞台 */
-  stage.add(layer);
 })
 </script>

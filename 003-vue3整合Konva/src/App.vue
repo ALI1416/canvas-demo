@@ -1,6 +1,10 @@
 <template>
 <!--  <App1></App1>-->
-  <App2></App2>
+<!--  <App2></App2>-->
+<!--  <App3></App3>-->
+<!--  <App4></App4>-->
+<!--  <App5></App5>-->
+  <App6></App6>
 </template>
 
 <style>
@@ -17,5 +21,13 @@
 /* 基础 */
 // import App1 from './App1.vue'
 /* 形状 */
-import App2 from './App2.vue'
+// import App2 from './App2.vue'
+/* 样式 */
+// import App3 from './App3.vue'
+/* 事件 */
+// import App4 from './App4.vue'
+/* 拖拽 */
+// import App5 from './App5.vue'
+/* 变形 */
+import App6 from './App6.vue'
 </script>

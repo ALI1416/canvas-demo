@@ -32,6 +32,7 @@ onMounted(() => {
     height: 300
   });
   const layer = new Konva.Layer();
+  stage.add(layer);
   const circle = new Konva.Circle({
     // 圆的x
     x: stage.width() / 2,
@@ -47,7 +48,6 @@ onMounted(() => {
     strokeWidth: 4
   });
   layer.add(circle);
-  stage.add(layer);
   /* 矩形 */
   const stage2 = new Konva.Stage({
     container: 'c2',
@@ -55,6 +55,7 @@ onMounted(() => {
     height: 300
   });
   const layer2 = new Konva.Layer();
+  stage2.add(layer2);
   const rect1 = new Konva.Rect({
     x: 20,
     y: 20,
@@ -87,7 +88,6 @@ onMounted(() => {
     cornerRadius: [0, 10, 20, 30]
   });
   layer2.add(rect3);
-  stage2.add(layer2);
   /* 椭圆 */
   const stage3 = new Konva.Stage({
     container: 'c3',
@@ -95,6 +95,7 @@ onMounted(() => {
     height: 300
   });
   const layer3 = new Konva.Layer();
+  stage3.add(layer3);
   const ellipse = new Konva.Ellipse({
     x: stage.width() / 2,
     y: stage.height() / 2,
@@ -107,7 +108,6 @@ onMounted(() => {
     strokeWidth: 4
   });
   layer3.add(ellipse);
-  stage3.add(layer3);
   /* 扇形 */
   const stage4 = new Konva.Stage({
     container: 'c4',
@@ -115,6 +115,7 @@ onMounted(() => {
     height: 300
   });
   const layer4 = new Konva.Layer();
+  stage4.add(layer4);
   const wedge = new Konva.Wedge({
     x: stage.width() / 2,
     y: stage.height() / 2,
@@ -129,7 +130,6 @@ onMounted(() => {
     rotation: -30
   });
   layer4.add(wedge);
-  stage4.add(layer4);
   /* 简单线条 */
   const stage5 = new Konva.Stage({
     container: 'c5',
@@ -137,6 +137,7 @@ onMounted(() => {
     height: 300
   });
   const layer5 = new Konva.Layer();
+  stage5.add(layer5);
   const redLine = new Konva.Line({
     // xy坐标：每2个为一组
     points: [15, 70, 140, 23, 250, 60, 280, 20],
@@ -166,7 +167,6 @@ onMounted(() => {
   });
   layer5.add(redLine);
   layer5.add(greenLine);
-  stage5.add(layer5);
   /* 多边形 */
   const stage6 = new Konva.Stage({
     container: 'c6',
@@ -174,6 +174,7 @@ onMounted(() => {
     height: 300
   });
   const layer6 = new Konva.Layer();
+  stage6.add(layer6);
   const polygon = new Konva.Line({
     points: [23, 20, 23, 160, 70, 93, 150, 109, 290, 139, 270, 93],
     fill: '#00D2FF',
@@ -183,7 +184,6 @@ onMounted(() => {
     closed: true
   });
   layer6.add(polygon);
-  stage6.add(layer6);
   /* 样条曲线 */
   const stage7 = new Konva.Stage({
     container: 'c7',
@@ -191,6 +191,7 @@ onMounted(() => {
     height: 300
   });
   const layer7 = new Konva.Layer();
+  stage7.add(layer7);
   const blueLine = new Konva.Line({
     points: [15, 70, 140, 23, 250, 60, 280, 20],
     stroke: 'blue',
@@ -205,7 +206,6 @@ onMounted(() => {
     y: 100
   });
   layer7.add(blueLine);
-  stage7.add(layer7);
   /* blob图形 */
   const stage8 = new Konva.Stage({
     container: 'c8',
@@ -213,6 +213,7 @@ onMounted(() => {
     height: 300
   });
   const layer8 = new Konva.Layer();
+  stage8.add(layer8);
   const blob = new Konva.Line({
     points: [23, 20, 23, 160, 70, 93, 150, 109, 290, 139, 270, 93],
     fill: '#00D2FF',
@@ -222,7 +223,6 @@ onMounted(() => {
     tension: 0.3
   });
   layer8.add(blob);
-  stage8.add(layer8);
   /* 加载图片 */
   const stage9 = new Konva.Stage({
     container: 'c9',
@@ -263,6 +263,7 @@ onMounted(() => {
     height: 300
   });
   const layer10 = new Konva.Layer();
+  stage10.add(layer10);
   // 普通文字
   const simpleText = new Konva.Text({
     x: stage10.width() / 2,
@@ -311,7 +312,6 @@ onMounted(() => {
   layer10.add(simpleText);
   layer10.add(rectText);
   layer10.add(complexText);
-  stage10.add(layer10);
   /* 路径文字 */
   const stage11 = new Konva.Stage({
     container: 'c11',
@@ -319,6 +319,7 @@ onMounted(() => {
     height: 300
   });
   const layer11 = new Konva.Layer();
+  stage11.add(layer11);
   const textpath = new Konva.TextPath({
     x: 0,
     y: 50,
@@ -331,7 +332,6 @@ onMounted(() => {
     data: 'M10,10 C0,0 10,150 100,100 S300,150 4.0.180'
   });
   layer11.add(textpath);
-  stage11.add(layer11);
   /* 星形 */
   const stage12 = new Konva.Stage({
     container: 'c12',
@@ -339,6 +339,7 @@ onMounted(() => {
     height: 300
   });
   const layer12 = new Konva.Layer();
+  stage12.add(layer12);
   const star = new Konva.Star({
     x: stage12.width() / 2,
     y: stage12.height() / 2,
@@ -353,7 +354,6 @@ onMounted(() => {
     strokeWidth: 4
   });
   layer12.add(star);
-  stage12.add(layer12);
   /* 环形 */
   const stage13 = new Konva.Stage({
     container: 'c13',
@@ -361,6 +361,7 @@ onMounted(() => {
     height: 300
   });
   const layer13 = new Konva.Layer();
+  stage13.add(layer13);
   const ring = new Konva.Ring({
     x: stage13.width() / 2,
     y: stage13.height() / 2,
@@ -373,7 +374,6 @@ onMounted(() => {
     strokeWidth: 4
   });
   layer13.add(ring);
-  stage13.add(layer13);
   /* 弧形 */
   const stage14 = new Konva.Stage({
     container: 'c14',
@@ -381,6 +381,7 @@ onMounted(() => {
     height: 300
   });
   const layer14 = new Konva.Layer();
+  stage14.add(layer14);
   const arc = new Konva.Arc({
     x: stage14.width() / 2,
     y: stage14.height() / 2,
@@ -395,7 +396,6 @@ onMounted(() => {
     strokeWidth: 4
   });
   layer14.add(arc);
-  stage14.add(layer14);
   /* 标签 */
   const stage15 = new Konva.Stage({
     container: 'c15',
@@ -403,7 +403,8 @@ onMounted(() => {
     height: 300
   });
   const layer15 = new Konva.Layer();
-  // 创建一个提示
+  stage15.add(layer15);
+// 创建一个提示
   const tooltip = new Konva.Label({
     x: 170,
     y: 75,
@@ -486,7 +487,6 @@ onMounted(() => {
       .add(tooltip)
       .add(labelLeft)
       .add(simpleLabel);
-  stage15.add(layer15);
   /* 路径 */
   const stage16 = new Konva.Stage({
     container: 'c16',
@@ -494,6 +494,7 @@ onMounted(() => {
     height: 300
   });
   const layer16 = new Konva.Layer();
+  stage16.add(layer16);
   const path = new Konva.Path({
     x: 50,
     y: 40,
@@ -506,7 +507,6 @@ onMounted(() => {
     }
   });
   layer16.add(path);
-  stage16.add(layer16);
   /* 等边多边形 */
   const stage17 = new Konva.Stage({
     container: 'c17',
@@ -514,7 +514,7 @@ onMounted(() => {
     height: 300
   });
   const layer17 = new Konva.Layer();
-  const layer18 = new Konva.Layer();
+  stage17.add(layer17);
   const regularPolygon = new Konva.RegularPolygon({
     x: 100,
     y: 150,
@@ -527,13 +527,14 @@ onMounted(() => {
     strokeWidth: 4
   });
   layer17.add(regularPolygon);
-  stage17.add(layer17);
   /* 箭头 */
   const stage18 = new Konva.Stage({
     container: 'c18',
     width: 300,
     height: 300
   });
+  const layer18 = new Konva.Layer();
+  stage18.add(layer18);
   const arrow = new Konva.Arrow({
     x: stage.width() / 4,
     y: stage.height() / 4,
@@ -548,7 +549,6 @@ onMounted(() => {
     strokeWidth: 4
   });
   layer18.add(arrow);
-  stage18.add(layer18);
   /* 自定义图形 */
   const stage19 = new Konva.Stage({
     container: 'c19',
@@ -556,6 +556,7 @@ onMounted(() => {
     height: 300
   });
   const layer19 = new Konva.Layer();
+  stage19.add(layer19);
   const triangle = new Konva.Shape({
     sceneFunc: function (context, shape) {
       context.beginPath();
@@ -571,7 +572,6 @@ onMounted(() => {
     strokeWidth: 4
   });
   layer19.add(triangle);
-  stage19.add(layer19);
 
 })
 </script>
