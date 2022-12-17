@@ -404,7 +404,7 @@ onMounted(() => {
   });
   const layer15 = new Konva.Layer();
   stage15.add(layer15);
-// 创建一个提示
+  // 创建一个提示
   const tooltip = new Konva.Label({
     x: 170,
     y: 75,

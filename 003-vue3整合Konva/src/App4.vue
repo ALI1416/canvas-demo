@@ -125,8 +125,9 @@ onMounted(() => {
       y: 150,
     });
     layer2.add(lionImage);
-    // 忽略透明像素
+    // 缓存图片
     lionImage.cache();
+    // 忽略透明像素
     lionImage.drawHitFromCache();
     lionImage.on('mouseover', function () {
       text2.text('进入');

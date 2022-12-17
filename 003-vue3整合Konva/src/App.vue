@@ -4,7 +4,9 @@
 <!--  <App3></App3>-->
 <!--  <App4></App4>-->
 <!--  <App5></App5>-->
-  <App6></App6>
+<!--  <App6></App6>-->
+<!--  <App7></App7>-->
+  <App8></App8>
 </template>
 
 <style>
@@ -29,5 +31,9 @@
 /* 拖拽 */
 // import App5 from './App5.vue'
 /* 变形 */
-import App6 from './App6.vue'
+// import App6 from './App6.vue'
+/* 裁剪、组、层级、更换容器 */
+// import App7 from './App7.vue'
+/* 滤镜 */
+import App8 from './App8.vue'
 </script>
