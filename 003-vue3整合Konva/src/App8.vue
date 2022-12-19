@@ -2,46 +2,55 @@
   <div class="d">
     <div>
       <input id="blurCb" type="checkbox"/>模糊度
-      <input id="blur" type="range" min="0" max="50" step="0.1" value="0"/>
+      <!-- 默认值：0 范围：[1,] 精度：1 复原值：0 -->
+      <input id="blur" type="range" min="0" max="50" step="1" value="0"/>
       <span id="blurV">0</span>
     </div>
     <div>
       <input id="brightenCb" type="checkbox"/>亮度
-      <input id="brighten" type="range" min="-1" max="1" step="0.01" value="0"/>
+      <!-- 默认值：0 范围：[-1,1] 精度：0 复原值：0 -->
+      <input id="brighten" type="range" min="-2" max="1" step="0.01" value="0"/>
       <span id="brightenV">0</span>
     </div>
     <div>
       <input id="contrastCb" type="checkbox"/>对比度
-      <input id="contrast" type="range" min="-100" max="100" step="0.1" value="0"/>
+      <!-- 默认值：0 范围：[-100,100] 精度：1 复原值：0 -->
+      <input id="contrast" type="range" min="-100" max="100" step="1" value="0"/>
       <span id="contrastV">0</span>
     </div>
     <div>
       <input id="enhanceCb" type="checkbox"/>反差
+      <!-- 默认值：0 范围：[-1,1] 精度：0 复原值：0 -->
       <input id="enhance" type="range" min="-1" max="1" step="0.01" value="0"/>
       <span id="enhanceV">0</span>
     </div>
     <div>
       <input id="maskCb" type="checkbox"/>遮罩
+      <!-- 默认值：0 范围：[-1,] 精度：1 复原值：-1 -->
       <input id="mask" type="range" min="-1" max="360" step="1" value="0"/>
       <span id="maskV">0</span>
     </div>
     <div>
       <input id="noiseCb" type="checkbox"/>噪声
+      <!-- 默认值：0.2 范围：[0,] 精度：0 复原值：0 -->
       <input id="noise" type="range" min="0" max="5" step="0.01" value="0.2"/>
       <span id="noiseV">0.2</span>
     </div>
     <div>
       <input id="pixelateCb" type="checkbox"/>像素化
+      <!-- 默认值：0 范围：[1,] 精度：1 复原值：1 -->
       <input id="pixelate" type="range" min="1" max="20" step="1" value="8"/>
       <span id="pixelateV">8</span>
     </div>
     <div>
       <input id="posterizeCb" type="checkbox"/>色调分离
+      <!-- 默认值：0.5 范围：[0,1] 精度：0 -->
       <input id="posterize" type="range" min="0" max="1" step="0.01" value="0.5"/>
       <span id="posterizeV">0.5</span>
     </div>
     <div>
       <input id="thresholdCb" type="checkbox"/>临界点
+      <!-- 默认值：0 范围：[0,1] 精度：0 -->
       <input id="threshold" type="range" min="0" max="1" step="0.01" value="0"/>
       <span id="thresholdV">0</span>
     </div>
@@ -64,65 +73,79 @@
   <div class="d">
     <div>
       <input id="hslCb" type="checkbox"/>HSL
-      <br>
-      色相：<input id="hslHue" type="range" min="0" max="359" step="1" value="0"/>
+      <br>色相
+      <!-- 默认值：0 范围：[0,359] 精度：1 复原值：0 -->
+      <input id="hslHue" type="range" min="0" max="359" step="1" value="0"/>
       <span id="hslHueV">0</span>
-      <br>
-      饱和度：<input id="hslSaturation" type="range" min="-2" max="2" step="0.01" value="0"/>
+      <br>饱和度
+      <!-- 默认值：0 范围：[,] 精度：0 复原值：0 -->
+      <input id="hslSaturation" type="range" min="-2" max="2" step="0.01" value="0"/>
       <span id="hslSaturationV">0</span>
-      <br>
-      亮度：<input id="hslLuminance" type="range" min="-2" max="2" step="0.01" value="0"/>
+      <br>亮度
+      <!-- 默认值：0 范围：[,] 精度：0 复原值：0 -->
+      <input id="hslLuminance" type="range" min="-2" max="2" step="0.01" value="0"/>
       <span id="hslLuminanceV">0</span>
     </div>
     <hr>
     <div>
       <input id="hsvCb" type="checkbox"/>HSV
-      <br>
-      色相：<input id="hsvHue" type="range" min="0" max="359" step="1" value="0"/>
+      <br>色相
+      <!-- 默认值：0 范围：[0,359] 精度：1 复原值：0 -->
+      <input id="hsvHue" type="range" min="0" max="359" step="1" value="0"/>
       <span id="hsvHueV">0</span>
-      <br>
-      饱和度：<input id="hsvSaturation" type="range" min="-2" max="10" step="0.01" value="0"/>
+      <br>饱和度
+      <!-- 默认值：0 范围：[,] 精度：0 复原值：0 -->
+      <input id="hsvSaturation" type="range" min="-2" max="10" step="0.01" value="0"/>
       <span id="hsvSaturationV">0</span>
-      <br>
-      明度：<input id="hsvValue" type="range" min="-2" max="2" step="0.01" value="0"/>
+      <br>明度
+      <!-- 默认值：0 范围：[,] 精度：0 复原值：0 -->
+      <input id="hsvValue" type="range" min="-2" max="2" step="0.01" value="0"/>
       <span id="hsvValueV">0</span>
     </div>
   </div>
   <div class="d">
     <div>
       <input id="rgbCb" type="checkbox"/>RGB
-      <br>
-      红色：<input id="rgbRed" type="range" min="0" max="255" step="1" value="0"/>
+      <br>红色
+      <!-- 默认值：0 范围：[0,255] 精度：0 -->
+      <input id="rgbRed" type="range" min="0" max="255" step="1" value="0"/>
       <span id="rgbRedV">0</span>
-      <br>
-      绿色：<input id="rgbGreen" type="range" min="0" max="255" step="1" value="0"/>
+      <br>绿色
+      <!-- 默认值：0 范围：[0,255] 精度：0 -->
+      <input id="rgbGreen" type="range" min="0" max="255" step="1" value="0"/>
       <span id="rgbGreenV">0</span>
-      <br>
-      蓝色：<input id="rgbBlue" type="range" min="0" max="255" step="1" value="0"/>
+      <br>蓝色
+      <!-- 默认值：0 范围：[0,255] 精度：0 -->
+      <input id="rgbBlue" type="range" min="0" max="255" step="1" value="0"/>
       <span id="rgbBlueV">0</span>
     </div>
     <hr>
     <div>
       <input id="rgbaCb" type="checkbox"/>RGBA
-      <br>
-      红色：<input id="rgbaRed" type="range" min="0" max="255" step="1" value="0"/>
+      <br>红色
+      <!-- 默认值：0 范围：[0,255] 精度：0 -->
+      <input id="rgbaRed" type="range" min="0" max="255" step="1" value="0"/>
       <span id="rgbaRedV">0</span>
-      <br>
-      绿色：<input id="rgbaGreen" type="range" min="0" max="255" step="1" value="0"/>
+      <br>绿色
+      <!-- 默认值：0 范围：[0,255] 精度：0 -->
+      <input id="rgbaGreen" type="range" min="0" max="255" step="1" value="0"/>
       <span id="rgbaGreenV">0</span>
-      <br>
-      蓝色：<input id="rgbaBlue" type="range" min="0" max="255" step="1" value="0"/>
+      <br>蓝色
+      <!-- 默认值：0 范围：[0,255] 精度：0 -->
+      <input id="rgbaBlue" type="range" min="0" max="255" step="1" value="0"/>
       <span id="rgbaBlueV">0</span>
-      <br>
-      透明：<input id="rgbaAlpha" type="range" min="0" max="1" step="0.01" value="1"/>
+      <br>透明
+      <!-- 默认值：1 范围：[0,1] 精度：0 -->
+      <input id="rgbaAlpha" type="range" min="0" max="1" step="0.01" value="1"/>
       <span id="rgbaAlphaV">1</span>
     </div>
   </div>
   <div class="d">
     <div>
       <input id="embossCb" type="checkbox"/>浮雕
-      <br>
-      方向：<input type="radio" name="embossDirectionR" value="top">上
+      <br>方向
+      <!-- 默认值：top-left 范围：[top,bottom,left,right,top-left,top-right,bottom-left,bottom-right] -->
+      <input type="radio" name="embossDirectionR" value="top">上
       <input type="radio" name="embossDirectionR" value="bottom">下
       <input type="radio" name="embossDirectionR" value="left">左
       <input type="radio" name="embossDirectionR" value="right">右
@@ -131,23 +154,27 @@
       <input type="radio" name="embossDirectionR" value="top-right">右上
       <input type="radio" name="embossDirectionR" value="bottom-left">左下
       <input type="radio" name="embossDirectionR" value="bottom-right">右下
-      <br>
-      混合：<input id="embossBlendCb" type="checkbox"/>
-      <br>
-      强度：<input id="embossStrength" type="range" min="0" max="1" step="0.01" value="0.5"/>
+      <br>混合
+      <input id="embossBlendCb" type="checkbox"/>
+      <br>强度
+      <!-- 默认值：0.5 范围：[0,1] 精度：0 -->
+      <input id="embossStrength" type="range" min="0" max="1" step="0.01" value="0.5"/>
       <span id="embossStrengthV">0.5</span>
-      <br>
-      白度：<input id="embossWhiteLevel" type="range" min="0" max="1" step="0.01" value="0.5"/>
+      <br>白度
+      <!-- 默认值：0.5 范围：[0,1] 精度：0 -->
+      <input id="embossWhiteLevel" type="range" min="0" max="1" step="0.01" value="0.5"/>
       <span id="embossWhiteLevelV">0.5</span>
     </div>
     <hr>
     <div>
       <input id="kaleidoscopeCb" type="checkbox"/>万花筒
-      <br>
-      幂次：<input id="kaleidoscopePower" type="range" min="0" max="3" step="1" value="2"/>
+      <br>幂次
+      <!-- 默认值：2 范围：[0,3] 精度：1 复原值：0 -->
+      <input id="kaleidoscopePower" type="range" min="0" max="3" step="1" value="2"/>
       <span id="kaleidoscopePowerV">2</span>
-      <br>
-      角度：<input id="kaleidoscopeAngle" type="range" min="0" max="360" step="1" value="0"/>
+      <br>角度
+      <!-- 默认值：0 范围：[0,360] 精度：1 复原值：0 -->
+      <input id="kaleidoscopeAngle" type="range" min="0" max="360" step="1" value="0"/>
       <span id="kaleidoscopeAngleV">0</span>
     </div>
   </div>
