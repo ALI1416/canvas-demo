@@ -18,6 +18,7 @@
   <div id="c17" class="c"></div>
   <div id="c18" class="c"></div>
   <div id="c19" class="c"></div>
+  <div id="c20" class="c"></div>
 </template>
 
 <script setup>
@@ -572,6 +573,36 @@ onMounted(() => {
     strokeWidth: 4
   });
   layer19.add(triangle);
-
+  /* 克隆 */
+  const stage20 = new Konva.Stage({
+    container: 'c20',
+    width: 300,
+    height: 300
+  });
+  const layer20 = new Konva.Layer();
+  stage20.add(layer20);
+  const star20 = new Konva.Star({
+    innerRadius: 15,
+    outerRadius: 30,
+    fill: 'red',
+    stroke: 'black',
+    strokeWidth: 2,
+    numPoints: 5,
+    x: 60,
+    y: 60,
+    draggable: true,
+    shadowOffset: {x: 5, y: 5},
+    shadowColor: 'black',
+    shadowBlur: 5,
+    shadowOpacity: 0.5,
+    shadowForStrokeEnabled: false,
+  });
+  layer20.add(star20);
+  for (let n = 0; n < 10; n++) {
+    layer20.add(star20.clone({
+      x: Math.random() * 300,
+      y: Math.random() * 300,
+    }));
+  }
 })
 </script>
