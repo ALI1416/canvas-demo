@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "konva": "^8.3.14",
+    "konva": "^9.0.2",
     "vue": "^3.2.37"
   },
   "devDependencies": {
