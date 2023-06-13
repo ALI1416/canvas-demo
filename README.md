@@ -1,7 +1,7 @@
 # canvas-demo canvas示例
 
-[![License](https://img.shields.io/github/license/ali1416/canvas-demo?label=License)](https://opensource.org/licenses/BSD-3-Clause)
-[![Repo Size](https://img.shields.io/github/repo-size/ali1416/canvas-demo?label=Repo%20Size&color=success)](https://github.com/ALI1416/canvas-demo/archive/refs/heads/master.zip)
+[![License](https://img.shields.io/github/license/ALI1416/canvas-demo?label=License)](https://opensource.org/licenses/BSD-3-Clause)
+[![Repo Size](https://img.shields.io/github/repo-size/ALI1416/canvas-demo?label=Repo%20Size&color=success)](https://github.com/ALI1416/canvas-demo/archive/refs/heads/master.zip)
 
 ## 简介
 
